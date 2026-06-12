@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html, body, #root {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #0a0a0a;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+}
+
+@layer components {
+  .debug-panel {
+    @apply fixed top-4 right-4 z-50 bg-black/80 backdrop-blur-md border border-white/10 rounded-lg p-4 text-white/90 text-xs font-mono min-w-[240px] select-none;
+  }
+
+  .debug-section {
+    @apply mb-3;
+  }
+
+  .debug-section-title {
+    @apply text-white/50 uppercase tracking-wider text-[10px] font-semibold mb-2;
+  }
+
+  .debug-row {
+    @apply flex justify-between items-center py-0.5;
+  }
+
+  .debug-label {
+    @apply text-white/60;
+  }
+
+  .debug-value {
+    @apply text-white/90 font-medium;
+  }
+
+  .debug-toggle {
+    @apply flex justify-between items-center py-1 cursor-pointer hover:bg-white/5 rounded px-1 -mx-1 transition-colors;
+  }
+
+  .debug-toggle-label {
+    @apply text-white/80 text-xs;
+  }
+
+  .debug-toggle-switch {
+    @apply w-8 h-4 rounded-full relative transition-colors;
+  }
+
+  .debug-toggle-switch.active {
+    @apply bg-blue-500;
+  }
+
+  .debug-toggle-switch.inactive {
+    @apply bg-white/20;
+  }
+
+  .debug-toggle-switch::after {
+    content: '';
+    @apply absolute top-0.5 left-0.5 w-3 h-3 rounded-full bg-white transition-transform;
+  }
+
+  .debug-toggle-switch.active::after {
+    transform: translateX(16px);
+  }
+}
